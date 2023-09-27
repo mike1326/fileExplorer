@@ -1,5 +1,4 @@
-// Arrow characters to use: ▼ ▶ •
-
+// notes: stub data to simulate calling an api/backend
 const backendData = [
 	{
 		id: '1',
