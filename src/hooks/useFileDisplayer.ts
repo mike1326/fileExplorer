@@ -11,7 +11,7 @@ export const useFileDisplayer = () => {
 				return {
 					name: file.name,
 					id: file.id,
-					children: [...formatData(Object.values(file.children))],
+					children: [...formatData(file.children)],
 					isFolder: true
 				}
 			else return { ...file, isFolder: false }
@@ -34,9 +34,7 @@ export const useFileDisplayer = () => {
 				if (file.children && file.children.length > 0) {
 					return {
 						...file,
-						children: [
-							...toggleFolderFiles(Object.values(file.children))
-						],
+						children: [...toggleFolderFiles(file.children)],
 						isShowFiles: toggleShowFiles(file, id)
 					}
 				}
