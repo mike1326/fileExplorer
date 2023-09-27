@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-import './App.scss'
+import styles from './style.module.scss'
 
 import { IFile, fetchData } from 'services/filesRetriever'
 import { FileExplorer } from 'components/FileExplorer'
@@ -18,7 +18,7 @@ const App: React.FC = () => {
 	}, [])
 
 	return (
-		<main className="main">
+		<main className={styles.main}>
 			{files && files.length > 0 && <FileExplorer files={files} />}
 		</main>
 	)

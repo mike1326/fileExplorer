@@ -22,11 +22,6 @@ export const FileExplorer: React.FC<IFileExplorerProps> = ({ files }) => {
 		}
 	}
 
-	const convertObjectToArray = (files: any) => {
-		if (files && typeof files === 'object') return Object.values(files)
-		return files
-	}
-
 	const getIconStyle = (file: IFile) => {
 		let iconStyle = styles['close']
 		let fileStyle = styles['file']
@@ -49,7 +44,12 @@ export const FileExplorer: React.FC<IFileExplorerProps> = ({ files }) => {
 					return (
 						<div className={fileStyle}>
 							{file && file.isFolder === false && (
-								<div aria-label={file.name} className={fileStyle}>{file.name}</div>
+								<div
+									aria-label={file.name}
+									className={fileStyle}
+								>
+									{file.name}
+								</div>
 							)}
 							{file && file.isFolder && (
 								<>
@@ -57,14 +57,15 @@ export const FileExplorer: React.FC<IFileExplorerProps> = ({ files }) => {
 										className={iconStyle}
 										onClick={() => onClickHandler(file.id)}
 									/>
-									<span aria-label={file.name} className={fileStyle}>
+									<span
+										aria-label={file.name}
+										className={fileStyle}
+									>
 										{file.name}
 										{file.isShowFiles && (
 											<FileExplorer
 												iconClassName={iconStyle}
-												files={convertObjectToArray(
-													file.children
-												)}
+												files={file.children}
 											/>
 										)}
 									</span>
