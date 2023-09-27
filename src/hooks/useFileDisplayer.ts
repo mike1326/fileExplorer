@@ -3,7 +3,6 @@ import { useState } from 'react'
 import { IFile } from 'services/filesRetriever'
 
 export const useFileDisplayer = () => {
-	//todo: logic for file explorer data hide/show children..
 	const [toggledFiles, setToggledFiles] = useState<IFile[]>()
 
 	const formatData = (files: IFile[]): IFile[] => {
