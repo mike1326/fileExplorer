@@ -1,0 +1,36 @@
+.file {
+	div {
+		&::before {
+			content: '• ';
+		}
+	}
+}
+
+.folder {
+	.file {
+		padding-left: 12px;
+	}
+	div {
+		&.folder {
+			padding-left: 20px;
+		}
+	}
+
+	.close {
+		&:before {
+			content: '▶ ';
+		}
+		cursor: pointer;
+	}
+
+	.open {
+		&:before {
+			content: '▼ ';
+		}
+		cursor: pointer;
+		.file,
+		.folder {
+			padding-left: 20px;
+		}
+	}
+}
